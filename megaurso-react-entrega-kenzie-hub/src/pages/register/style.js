@@ -101,6 +101,7 @@ export const DivRegister = styled.div`
                 color: var(--color-gray0);
                 border-radius: 4px;
                 cursor: pointer;
+                border: none;
                 :hover{
                     background: var(--color-primary2);
                 }
