@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Header } from "../../components/header";
 import { api } from "../../services/api";
 import { DivDashBoard } from "./style";
 
 export function DashBoard(){
-
+    const navigate = useNavigate()
 
     const [userInfo, setUserInfo] = useState("")
 
     function getLocalStorage(){
         const token = localStorage.getItem("@TOKEN") || ""
 
+        if(token == ""){
+            navigate("/")
+        }
         return token
     }
 
@@ -33,7 +36,8 @@ export function DashBoard(){
     },[])
 
     function removeLocalStorage(){
-        const remove = localStorage.removeItem("@TOKEN")
+        const remove = localStorage.removeItem("@TOKEN") && localStorage.removeItem("@USERID")
+       
         return remove
     }
 
