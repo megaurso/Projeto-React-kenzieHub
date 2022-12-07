@@ -1,65 +1,27 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { DivRegister } from "./style";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { api } from "../../services/api";
 import { useForm } from "react-hook-form";
 import { Buttons } from "../../components/buttons";
 import { Inputs } from "../../components/inputs";
 import { Forms } from "../../components/form";
 import { Header } from "../../components/header";
-import { toast } from "react-toastify";
+import { formSchemaRegister } from "../../lib/yup";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
+
 
 export function Register() {
-  const navigate = useNavigate();
-  const lowerCaseRegex = /(?=.*[a-z])/;
-  const upperCaseRegex = /(?=.*[A-Z])/;
-  const numericRegex = /(?=.*[0-9])/;
-  const caracterSpecialRegex = /\W|_/;
 
-  const formSchema = yup.object().shape({
-    name: yup.string().required("Nome Obrigatório"),
-    email: yup.string().required("Email Obrigatório").email("Email invalido"),
-
-    password: yup
-      .string()
-      .matches(lowerCaseRegex, "Uma letra minúscula exigida")
-      .matches(caracterSpecialRegex, "Um caracter especial exigido")
-      .matches(upperCaseRegex, "Uma letra maiúscula exigida")
-      .matches(numericRegex, "Um numero exigido")
-      .min(8, "Minimo de 8 caracteres na sua senha")
-      .required("Senha Obrigatória"),
-
-    confirmPassword: yup
-      .string()
-      .oneOf([yup.ref("password")], "Senha tem que ser a mesma")
-      .required("Confirmar senha"),
-
-    bio: yup.string().required("Bio obrigatória"),
-
-    contact: yup.string().required("Forma para contato obrigatória"),
-
-    course_module: yup.string(),
-  });
+  const { myRegister } = useContext(UserContext)
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(formSchema),
+    resolver: yupResolver(formSchemaRegister),
   });
-
-  async function postHandleSubmit(data) {
-    delete data.confirmPassword;
-    try {
-      await api.post("/users", data);
-      toast.success("Conta criada com sucesso!");
-      navigate("/");
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   return (
     <DivRegister>
@@ -67,7 +29,7 @@ export function Register() {
         <h1>Kenzie Hub</h1>
         <Link to={"/"}>Voltar</Link>
       </Header>
-      <Forms onSubmit={handleSubmit(postHandleSubmit)}>
+      <Forms onSubmit={handleSubmit(myRegister)}>
         <h2>Crie sua conta</h2>
         <span>Rapido e grátis, vamos nessa</span>
         <section>

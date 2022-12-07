@@ -56,19 +56,64 @@ export const DivDashBoard = styled.div`
     }
 
     main{
-        margin-top: 30px;
-        padding-left: 10px;
+        section{
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-        h1{
-            font-size: var(--font-size5);
-            color: var(--color-gray0);
-            margin-bottom: 20px;
+            h2{
+                color: var(--color-gray0);
+            }
+
+            button{
+                width: 30px;
+                height: 30px;
+                font-size: var(--font-size2);
+                color: var(--color-gray0);
+                background-color: var(--color-gray3);
+                border: none;
+                border-radius: 4px;
+                margin-right: 20px;
+                cursor: pointer;
+            }
         }
+        
+        div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            ul{
+                background-color: var(--color-gray2);
+                width: 90%;
+                border-radius: 8px;
+                padding-left: 10px;
+                padding-bottom: 10px;
 
-        p{
-            font-size: var(--font-size6);
-            color: var(--color-gray1);
-            line-height: 30px;
+                li{
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    display: flex;
+                    align-items: center;
+                    background-color: var(--color-gray4);
+                    border: none;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    margin-right: 10px;
+                    border-radius: 8px;
+                    justify-content: space-between;
+
+                    h3{
+                        font-size: var(--font-size4);
+                        color: var(--color-gray0);
+                    }
+
+                    span{
+                        color: var(--color-gray1);
+                        font-size: var(--font-size6);
+                    }
+                }
+            }
         }
     }
 
@@ -106,16 +151,33 @@ export const DivDashBoard = styled.div`
         }
         
         main{
-            padding-right: 340px;
-            h1{
-                font-size: var(--font-size1);
+          section{
+            justify-content: space-around;
+            button{
+                width: 40px;
+                height: 40px;
+                margin: 0;
+                :hover{
+                    background-color: var(--color-gray2);
+                }
             }
+          }
 
-            p{
-            font-size: var(--font-size2);
+          div{
+              align-items: center;
+              justify-content: center;
+              ul{
+                  width: 55%;
+                  li{
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    :hover{
+                        background-color: var(--color-gray3);
+                    }
+                  }
+                }
             }
         }
-
     }
 
 

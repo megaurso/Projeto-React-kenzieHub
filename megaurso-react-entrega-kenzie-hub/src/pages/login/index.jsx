@@ -1,48 +1,32 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { DivFormLogin } from "./style";
-import * as yup from "yup";
 import { useForm } from "react-hook-form";
-import { api } from "../../services/api";
 import { Buttons } from "../../components/buttons";
 import { Inputs } from "../../components/inputs";
 import { Forms } from "../../components/form";
-import { toast } from "react-toastify";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
+import { formSchemaLogin } from "../../lib/yup";
+
 
 export function Login() {
-  const navigate = useNavigate();
 
-  const formSchema = yup.object().shape({
-    email: yup.string().required("Email Obrigatório").email(),
-    password: yup.string().required("Senha Obrigatória"),
-  });
+  const { login } = useContext(UserContext)
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(formSchema),
+    resolver: yupResolver(formSchemaLogin),
   });
 
-  async function postHandleSubmit(data) {
-    try {
-      const response = await api.post("/sessions", data);
-      toast.success("Login efetuado com sucesso!");
-      window.localStorage.clear();
-      window.localStorage.setItem("@TOKEN", response.data.token);
-      navigate("/dashboard");
-    } catch (error) {
-      console.log(error);
-      toast.error("Algo deu errado tente novamente!");
-    } finally {
-    }
-  }
-
+ 
   return (
     <DivFormLogin>
       <h1>Kenzie Hub</h1>
-      <Forms onSubmit={handleSubmit(postHandleSubmit)}>
+      <Forms onSubmit={handleSubmit(login)}>
         <h2>Login</h2>
         <div>
           <label htmlFor="email">Email</label>

@@ -1,9 +1,7 @@
-import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { Login } from "./pages/login";
-import { Register } from "./pages/register";
 import "react-toastify/dist/ReactToastify.css"
-import { DashBoard } from "./pages/dashBoard";
+import { ContextProvider } from "./contexts/ContextProvider";
+import { RoutesMain } from "./routes";
 
 function App() {
   return (
@@ -20,11 +18,9 @@ function App() {
       pauseOnHover
       theme="light"
     />
-    <Routes>
-      <Route path="/" element={<Login/>}/>
-      <Route path="/register" element={<Register/>}/>
-      <Route path="/dashboard" element={<DashBoard/>}/>
-    </Routes>
+    <ContextProvider>
+      <RoutesMain/>
+    </ContextProvider>
     </>
   );
 }

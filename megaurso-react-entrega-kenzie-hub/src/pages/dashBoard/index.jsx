@@ -1,47 +1,12 @@
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { Buttons } from "../../components/buttons";
 import { Header } from "../../components/header";
-import { api } from "../../services/api";
+import { UserContext } from "../../contexts/UserContext";
 import { DivDashBoard } from "./style";
 
 export function DashBoard() {
-  const navigate = useNavigate();
-
-  const [userInfo, setUserInfo] = useState("");
-
-  function getLocalStorage() {
-    const token = localStorage.getItem("@TOKEN") || "";
-
-    if (token == "") {
-      navigate("/");
-    }
-    return token;
-  }
-
-  useEffect(() => {
-    async function getApi() {
-      const token = getLocalStorage();
-      try {
-        const response = await api.get("/profile", {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        setUserInfo(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    getApi();
-  }, []);
-
-  function removeLocalStorage() {
-    const remove =
-      localStorage.removeItem("@TOKEN") && localStorage.removeItem("@USERID");
-
-    return remove;
-  }
+  const { users,removeLocalStorage } = useContext(UserContext);
 
   return (
     <DivDashBoard>
@@ -52,14 +17,38 @@ export function DashBoard() {
         </Link>
       </Header>
       <section>
-        <h1>Olá, {userInfo.name}</h1>
-        <span>{userInfo.course_module}</span>
+        <h1>Olá, {users.name}</h1>
+        <span>{users.course_module}</span>
       </section>
       <main>
-        <h1>Que pena! Estamos em desenvolvimento :(</h1>
-        <p>
-          Nossa aplicação está em desenvolvimento, em breve teremos novidades
-        </p>
+        <section>
+          <h2>Tecnologías</h2>
+          <Buttons>+</Buttons>
+        </section>
+        <div>
+          <ul>
+            <li>
+              <h3>React JS</h3>
+              <span>Intermediário</span>
+            </li>
+            <li>
+              <h3>Next JS</h3>
+              <span>Iniciante</span>
+            </li>
+            <li>
+              <h3>Styled-Components</h3>
+              <span>Avançado</span>
+            </li>
+            <li>
+              <h3>Chakra UI</h3>
+              <span>Iniciante</span>
+            </li>
+            <li>
+              <h3>Chakra UI</h3>
+              <span>Iniciante</span>
+            </li>
+          </ul>
+        </div>
       </main>
     </DivDashBoard>
   );
