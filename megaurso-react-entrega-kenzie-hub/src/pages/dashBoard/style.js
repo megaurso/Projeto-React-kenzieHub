@@ -118,6 +118,13 @@ export const DivDashBoard = styled.div`
                         color: var(--color-gray1);
                         font-size: var(--font-size6);
                     }
+                    
+                    &>div{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-evenly;
+                        gap: 20px;
+                    }
                 }
             }
         }
@@ -126,6 +133,7 @@ export const DivDashBoard = styled.div`
     @media(min-width:1024px){
         align-items: center;
         justify-content: center;
+
         header{
             align-items: center;
             justify-content: space-evenly;
@@ -142,6 +150,7 @@ export const DivDashBoard = styled.div`
         }
 
         section{
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-evenly;
@@ -153,6 +162,7 @@ export const DivDashBoard = styled.div`
         }
         
         main{
+            width: 100%;
             h1{
                 font-size: var(--font-size1);
             }
@@ -182,6 +192,13 @@ export const DivDashBoard = styled.div`
                     padding-right: 20px;
                     :hover{
                         background-color: var(--color-gray3);
+                    }
+                    &>div{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        width: 20%;
+                        img{cursor: pointer;}
                     }
                   }
                 }

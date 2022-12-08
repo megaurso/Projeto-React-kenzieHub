@@ -64,7 +64,7 @@ export function UserProvider({ children }){
           }
         }
         getApi();
-      }, []);
+      }, [users]);
 
 
       function removeLocalStorage() {

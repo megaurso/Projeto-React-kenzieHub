@@ -34,3 +34,9 @@ export const formSchemaLogin = yup.object().shape({
     email: yup.string().required("Email Obrigatório").email(),
     password: yup.string().required("Senha Obrigatória"),
 });
+
+
+export const formSchemaModal = yup.object().shape({
+    title: yup.string().required("Você precisa dar um titulo"),
+    status: yup.string().required("Selecione seu status")
+})

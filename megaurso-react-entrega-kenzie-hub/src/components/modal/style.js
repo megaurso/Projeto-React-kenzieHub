@@ -10,20 +10,20 @@ export const DivModal = styled.div`
     width: 100%;
     height: 100%;
 
-    div{
-        padding-left: 40px;
-        padding-bottom: 40px;
-        padding-right: 40px;
+    &>div{
+    
         min-height: 30%;
         position: relative;
         width: auto;
         background-color: var(--color-gray3);
-        width: 90%;
         border-radius: 4px;
 
         header{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             background-color: var(--color-gray2);
-            width: 90vw;
             border-top-left-radius: 4px;
             border-top-right-radius: 4px;
             height: 15%;
@@ -32,6 +32,7 @@ export const DivModal = styled.div`
             h2{
                 font-size: var(--font-size6);
                 padding-left: 10px;
+                color: var(--color-gray0);
             }
 
             button{
@@ -44,6 +45,9 @@ export const DivModal = styled.div`
                 background-color: var(--color-gray2);
                 margin: 0;
                 color: var(--color-gray1);
+                border: none;   
+                padding-right: 10px;
+                cursor: pointer;
             }
         }
 
@@ -54,6 +58,12 @@ export const DivModal = styled.div`
             flex-direction: column;
             justify-content: center;
             gap: 10px;
+            padding: 10px;
+
+            p{
+                color: var(--color-gray0);
+                font-size: var(--font-size6);
+            }
 
             label{
                 color: var(--color-gray1);
@@ -67,6 +77,7 @@ export const DivModal = styled.div`
                 border: 1px solid var(--color-gray0);
                 color: var(--color-gray0);
                 background-color: var(--color-gray2);
+                outline: var(--color-gray0);
             }
 
             select{
@@ -76,6 +87,8 @@ export const DivModal = styled.div`
                 border: 1px solid var(--color-gray0);
                 color: var(--color-gray1);
                 background-color: var(--color-gray2);
+                outline: var(--color-gray0);
+                cursor: pointer;
             }
 
             button{
@@ -88,6 +101,9 @@ export const DivModal = styled.div`
                 height: 40px;
                 background-color: var(--color-primary);
                 border: none;
+                border-radius: 4px;
+                color: var(--color-gray0);
+                cursor: pointer;
                 :hover{
                     background-color: var(--color-primary2);
                 }
@@ -97,14 +113,14 @@ export const DivModal = styled.div`
 
     @media(min-width:1024px){
         div{
-            width: 20%;
+            width: 15%;
             padding-bottom: 20px;
             bottom: 98px;
             justify-content: space-between;
 
             header{
                 padding: 0;
-                width: 20vw;
+                width: 100%;
                 justify-content: space-between;
                 gap: 0;
                 h2{
@@ -118,7 +134,7 @@ export const DivModal = styled.div`
                 }
             }
             form{
-                width: 18vw;
+                width: 100%;
             }
         }
     }

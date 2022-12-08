@@ -20,7 +20,7 @@ export function Login() {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(formSchemaLogin),
-  });
+  })
 
  
   return (
