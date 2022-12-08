@@ -20,6 +20,7 @@ export function UserProvider({ children }){
           toast.success("Login efetuado com sucesso!");
           window.localStorage.clear();
           window.localStorage.setItem("@TOKEN", token);
+          window.localStorage.setItem("@USERID", user.id);
           api.defaults.headers.common.authorization = `Bearer ${token}`
           navigate("/dashboard");
         } catch (error) {
@@ -56,6 +57,8 @@ export function UserProvider({ children }){
             setUsers(response.data);
           } catch (error) {
             console.log(error);
+            localStorage.removeItem("@TOKEN");
+            localStorage.removeItem("@USERID");
           }finally{
             setLoading(false)
           }
@@ -65,9 +68,8 @@ export function UserProvider({ children }){
 
 
       function removeLocalStorage() {
-        const remove = localStorage.removeItem("@TOKEN");
-    
-        return remove;
+        localStorage.removeItem("@TOKEN") 
+        localStorage.removeItem("@USERID") 
       }
 
     return (

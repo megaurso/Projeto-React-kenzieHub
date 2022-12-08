@@ -56,6 +56,12 @@ export const DivDashBoard = styled.div`
     }
 
     main{
+        h1{
+            font-size: var(--font-size5);
+            color: var(--color-gray0);
+            margin-bottom: 20px;
+        }
+
         section{
             border: none;
             display: flex;
@@ -144,13 +150,16 @@ export const DivDashBoard = styled.div`
             h1{
             font-size: var(--font-size1);
             } 
-
-            span{
-            font-size: var(--font-size2);
-            }
         }
         
         main{
+            h1{
+                font-size: var(--font-size1);
+            }
+
+            p{
+                font-size: var(--font-size2);
+            }
           section{
             justify-content: space-around;
             button{

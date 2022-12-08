@@ -4,9 +4,9 @@ import { UserProvider } from "./UserContext";
 export function ContextProvider({children}) {
     return(
         <UserProvider>
-            {/* <TechProvider> */}
+            <TechProvider>
                 {children}
-            {/* </TechProvider> */}
+            </TechProvider>
         </UserProvider>
     )
 }
