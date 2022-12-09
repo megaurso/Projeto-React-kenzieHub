@@ -9,10 +9,8 @@ import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { formSchemaLogin } from "../../lib/yup";
 
-
 export function Login() {
-
-  const { login } = useContext(UserContext)
+  const { login } = useContext(UserContext);
 
   const {
     register,
@@ -20,9 +18,8 @@ export function Login() {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(formSchemaLogin),
-  })
+  });
 
- 
   return (
     <DivFormLogin>
       <h1>Kenzie Hub</h1>

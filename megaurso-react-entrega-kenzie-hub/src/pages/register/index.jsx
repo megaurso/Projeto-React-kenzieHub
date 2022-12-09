@@ -10,10 +10,8 @@ import { formSchemaRegister } from "../../lib/yup";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 
-
 export function Register() {
-
-  const { myRegister } = useContext(UserContext)
+  const { myRegister } = useContext(UserContext);
 
   const {
     register,

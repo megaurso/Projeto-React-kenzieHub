@@ -31,7 +31,7 @@ export const formSchemaRegister = yup.object().shape({
 });
 
 export const formSchemaLogin = yup.object().shape({
-    email: yup.string().required("Email Obrigatório").email(),
+    email: yup.string().required("Email Obrigatório").email("Precisa ser um email valido"),
     password: yup.string().required("Senha Obrigatória"),
 });
 

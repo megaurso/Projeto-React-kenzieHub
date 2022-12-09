@@ -108,10 +108,18 @@ export const DivDashBoard = styled.div`
                     margin-right: 10px;
                     border-radius: 8px;
                     justify-content: space-between;
+                    max-width: 100%;
 
                     h3{
                         font-size: var(--font-size4);
                         color: var(--color-gray0);
+                    }
+
+                    button{
+                        border: none;
+                        color: var(--color-gray1);
+                        cursor: pointer;
+                        background-color: var(--color-gray4);
                     }
 
                     span{

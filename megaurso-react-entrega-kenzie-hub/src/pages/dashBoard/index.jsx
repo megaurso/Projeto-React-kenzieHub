@@ -8,10 +8,9 @@ import { TechContext } from "../../contexts/TechContext";
 import { UserContext } from "../../contexts/UserContext";
 import { DivDashBoard } from "./style";
 
-
 export function DashBoard() {
-  const { users,removeLocalStorage } = useContext(UserContext);
-  const { modalVisible,setModalVisible} = useContext(TechContext)
+  const { users, removeLocalStorage } = useContext(UserContext);
+  const { modalVisible, setModalVisible } = useContext(TechContext);
 
   return (
     <>
@@ -27,20 +26,24 @@ export function DashBoard() {
           <span>{users.course_module}</span>
         </section>
         <main>
-
           <section>
             <h2>Tecnologías</h2>
             <Buttons onClick={() => setModalVisible(true)}>+</Buttons>
           </section>
           <div>
-            { users.techs?.length > 0 ? <ul>
-              {users.techs.map(tec => <Tecnologic key={tec.id} tec={tec}/>)}
-            </ul>
-            : <h1>Que pena! Você ainda não tem tecnologias</h1>}
+            {users.techs?.length > 0 ? (
+              <ul>
+                {users.techs.map((tec) => (
+                  <Tecnologic key={tec.id} tec={tec} />
+                ))}
+              </ul>
+            ) : (
+              <h1>Que pena! Você ainda não tem tecnologias</h1>
+            )}
           </div>
         </main>
       </DivDashBoard>
-      {modalVisible ? <Modal onClose={()=> setModalVisible(false)}/> : null}
+      {modalVisible ? <Modal onClose={() => setModalVisible(false)} /> : null}
     </>
   );
 }
