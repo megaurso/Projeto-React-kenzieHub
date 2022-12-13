@@ -39,7 +39,7 @@ export function Modal({ id = "modal", onClose }) {
             register={{ ...register("title") }}
             id={"tecnologia"}
             type={"text"}
-            placeholder={"Dige o assunto"}
+            placeholder={"Digite o assunto"}
           ></Inputs>
           <p aria-errormessage="error">{errors.title?.message}</p>
           <label htmlFor="select">Selecionar status</label>

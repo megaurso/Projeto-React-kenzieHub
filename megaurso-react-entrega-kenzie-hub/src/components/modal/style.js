@@ -58,7 +58,7 @@ export const DivModal = styled.div`
             flex-direction: column;
             justify-content: center;
             gap: 10px;
-            padding: 10px;
+            padding: 15px;
 
             p{
                 color: var(--color-gray0);
@@ -72,7 +72,7 @@ export const DivModal = styled.div`
 
             input{
                 height: 40px;
-                padding-left: 5px;
+                padding-left: 10px;
                 border-radius: 4px;
                 border: 1px solid var(--color-gray0);
                 color: var(--color-gray0);
@@ -82,7 +82,7 @@ export const DivModal = styled.div`
 
             select{
                 height: 40px;
-                padding-left: 5px;
+                padding-left: 10px;
                 border-radius: 4px;
                 border: 1px solid var(--color-gray0);
                 color: var(--color-gray1);
@@ -113,10 +113,11 @@ export const DivModal = styled.div`
 
     @media(min-width:1024px){
         div{
-            width: 15%;
+            width: 20%;
             padding-bottom: 20px;
             bottom: 98px;
             justify-content: space-between;
+        
 
             header{
                 padding: 0;
@@ -213,7 +214,7 @@ export const DivModalEdit = styled.div`
 
             input{
                 height: 40px;
-                padding-left: 5px;
+                padding-left: 10px;
                 border-radius: 4px;
                 border: none;
                 color: var(--color-gray1);
