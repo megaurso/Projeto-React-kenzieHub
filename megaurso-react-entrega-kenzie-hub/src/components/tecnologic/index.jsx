@@ -17,18 +17,13 @@ export function Tecnologic({ tec }) {
 
   return (
     <>
-      <li key={tec.id}>
+      <li onClick={() => {
+              setModalVisibleEdit(true);
+              setCurrentValue(tec);
+            }} key={tec.id}>
         <h3>{tec.title}</h3>
         <div>
           <span>{tec.status}</span>
-          <Buttons
-            onClick={() => {
-              setModalVisibleEdit(true);
-              setCurrentValue(tec);
-            }}
-          >
-            Editar
-          </Buttons>
           <img
             onClick={() => deleteTecnologic(tec.id)}
             src={lixeira}

@@ -97,6 +97,7 @@ export const DivDashBoard = styled.div`
                 padding-bottom: 10px;
 
                 li{
+                    cursor: pointer;
                     padding-left: 10px;
                     padding-right: 10px;
                     display: flex;
@@ -108,18 +109,10 @@ export const DivDashBoard = styled.div`
                     margin-right: 10px;
                     border-radius: 8px;
                     justify-content: space-between;
-                    max-width: 100%;
 
                     h3{
                         font-size: var(--font-size4);
                         color: var(--color-gray0);
-                    }
-
-                    button{
-                        border: none;
-                        color: var(--color-gray1);
-                        cursor: pointer;
-                        background-color: var(--color-gray4);
                     }
 
                     span{
@@ -204,7 +197,7 @@ export const DivDashBoard = styled.div`
                     &>div{
                         display: flex;
                         flex-direction: row;
-                        justify-content: space-between;
+                        justify-content: space-evenly;
                         width: 20%;
                         img{cursor: pointer;}
                     }

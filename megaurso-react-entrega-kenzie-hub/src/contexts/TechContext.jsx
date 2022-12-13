@@ -31,6 +31,7 @@ export function TechProvider({ children }) {
       await api.delete(`/users/techs/${id}`);
       const filterUser = newTecnologic.filter((userId) => userId.id !== id);
       setNewTecnologic(filterUser);
+      setModalVisibleEdit(false);
       toast.success("Tecnología excluida");
     } catch (error) {
       console.log(error);
@@ -42,7 +43,6 @@ export function TechProvider({ children }) {
       await api.put(`/users/techs/${currentValue.id}`, status);
       getApi();
       setModalVisibleEdit(false);
-      toast.success("Tecnologia Editada");
     } catch (error) {
       console.log(error);
     }

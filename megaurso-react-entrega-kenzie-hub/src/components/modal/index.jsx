@@ -85,7 +85,7 @@ export function ModalEdit({ id = "modalEdit", onClose, currentValue }) {
             value={currentValue.title}
             id={"tecnologia"}
             type={"text"}
-            placeholder={"Dige o assunto"}
+            placeholder={"Digite o assunto"}
           ></Inputs>
           <p aria-errormessage="error">{errors.title?.message}</p>
           <label htmlFor="select">Status</label>
