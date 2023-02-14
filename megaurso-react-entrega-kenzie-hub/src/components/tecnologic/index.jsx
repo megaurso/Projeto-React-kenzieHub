@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { TechContext } from "../../contexts/TechContext";
 import lixeira from "../../imgs/Vector.png";
-import { Buttons } from "../buttons";
 import { Modal, ModalEdit } from "../modal";
 
 export function Tecnologic({ tec }) {

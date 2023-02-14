@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { createContext } from "react";
 import { toast } from "react-toastify";
@@ -47,6 +47,9 @@ export function TechProvider({ children }) {
       console.log(error);
     }
   }
+  useEffect(() => {
+    getApi();
+  }, []);
 
   return (
     <TechContext.Provider
