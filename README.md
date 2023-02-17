@@ -1,6 +1,5 @@
 https://megaurso-react-entrega-kenzie-hub-megaurso.vercel.app
 # technologies
-# react-kenzie-hub
 # react-router-dom axios
 # styled-components
 # react-hook-form 
