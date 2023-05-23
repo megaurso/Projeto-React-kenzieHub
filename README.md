@@ -1,4 +1,5 @@
-https://megaurso-react-entrega-kenzie-hub-megaurso.vercel.app
+DEPLOY VERCE:
+  https://megaurso-react-entrega-kenzie-hub.vercel.app/
 # technologies
 # react-router-dom axios
 # styled-components
